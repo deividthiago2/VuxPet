@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="VuxPet — Plataforma inteligente de agendamento vacinal para o seu pet." />
+    <title>VuxPet - Plataforma Inteligente de Agendamento Vacinal</title>
+
+    <!-- Fontes e Ícones -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+    <!-- Estilos -->
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+    <!-- ===== TOASTS ===== -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- ===== HEADER ===== -->
+    <header>
+        <div class="header-content">
+            <a href="#" class="logo" data-page="home">
+                <i class="fas fa-paw"></i>
+                Vux<span>Pet</span>
+            </a>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#" data-page="home">Início</a></li>
+                <li><a href="#" data-page="dashboard">Dashboard</a></li>
+                <li><a href="#" data-page="schedule">Agendar</a></li>
+                <li><a href="#" data-page="history">Histórico</a></li>
+                <li><a href="#" data-page="pro"><i class="fas fa-user-doctor"></i> Profissional</a></li>
+
+                <li id="authNav">
+                    <a href="#" class="btn btn-primary btn-sm" data-page="auth" data-auth-tab="login">
+                        <i class="fas fa-user"></i> Entrar
+                    </a>
+                </li>
+
+                <li id="userNav" class="hidden">
+                    <span class="user-chip">
+                        <span class="avatar" id="userAvatar">U</span>
+                        <span id="userNameDisplay">Usuário</span>
+                    </span>
+                    <a href="#" class="btn btn-ghost btn-sm" id="logoutBtn" title="Sair da conta">
+                        <i class="fas fa-sign-out-alt"></i> Sair
+                    </a>
+                </li>
+            </ul>
+
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Abrir menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- ============ HOME ============ -->
+        <div id="page-home">
+            <section class="hero">
+                <div class="container">
+                    <div class="hero-content">
+                        <div class="hero-text">
+                            <h1>Vacinação inteligente para <span class="highlight">seu pet</span></h1>
+                            <p>
+                                O VuxPet unifica agendamento de vacinas, geolocalização de clínicas e
+                                lembretes automáticos para você nunca mais esquecer a data do seu pet.
+                            </p>
+                            <div class="hero-actions">
+                                <a href="#" class="btn btn-primary" data-page="auth" data-auth-tab="register">
+                                    <i class="fas fa-user-plus"></i> Começar agora
+                                </a>
+                                <a href="#features" class="btn btn-outline">
+                                    <i class="fas fa-arrow-down"></i> Saiba mais
+                                </a>
+                            </div>
+                            <div class="hero-stats">
+                                <div class="stat">
+                                    <div class="stat-number">94%</div>
+                                    <div class="stat-label">Adesão aos lembretes</div>
+                                </div>
+                                <div class="stat">
+                                    <div class="stat-number">150+</div>
+                                    <div class="stat-label">Clínicas parceiras</div>
+                                </div>
+                                <div class="stat">
+                                    <div class="stat-number">12k</div>
+                                    <div class="stat-label">Pets vacinados</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="hero-image">
+                            <div class="illustration">
+                                <i class="fas fa-dog"></i>
+                                <h3>Seu pet merece cuidado</h3>
+                                <p style="color:var(--gray);font-size:14px;">Agendamento fácil, lembretes na hora certa.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="features" id="features">
+                <div class="container">
+                    <h2 class="section-title" style="text-align:center;">Como o VuxPet funciona</h2>
+                    <p class="section-subtitle" style="text-align:center;max-width:600px;margin:0 auto 40px;">
+                        Tecnologia a serviço da saúde do seu pet
+                    </p>
+                    <div class="features-grid">
+                        <div class="card feature-card">
+                            <div class="icon"><i class="fas fa-calendar-check"></i></div>
+                            <h3>Agendamento fácil</h3>
+                            <p>Escolha a vacina, a clínica e o horário disponível em poucos cliques.</p>
+                        </div>
+                        <div class="card feature-card">
+                            <div class="icon"><i class="fas fa-map-marked-alt"></i></div>
+                            <h3>Geolocalização</h3>
+                            <p>Encontre clínicas parceiras próximas com mapa interativo.</p>
+                        </div>
+                        <div class="card feature-card">
+                            <div class="icon"><i class="fas fa-bell"></i></div>
+                            <h3>Lembretes ativos</h3>
+                            <p>Notificações por e-mail e WhatsApp 7 dias antes do reforço.</p>
+                        </div>
+                        <div class="card feature-card">
+                            <div class="icon"><i class="fas fa-file-medical-alt"></i></div>
+                            <h3>Histórico completo</h3>
+                            <p>Registro de todas as vacinas aplicadas e certificado digital.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- ============ ENTRAR (LOGIN / CADASTRO) ============ -->
+        <div id="page-auth" class="hidden">
+            <section class="auth-page">
+                <aside class="auth-aside">
+                    <div class="auth-brand">
+                        <i class="fas fa-paw"></i> VuxPet
+                    </div>
+                    <h2>Bem-vindo de volta ao cuidado com quem você ama.</h2>
+                    <p>
+                        Entre na sua conta para acompanhar vacinas, agendamentos e lembretes
+                        do seu pet — tudo em um só lugar.
+                    </p>
+
+                    <ul class="auth-benefits">
+                        <li><i class="fas fa-check"></i> Histórico vacinal completo e certificado digital</li>
+                        <li><i class="fas fa-check"></i> Lembretes automáticos 7 dias antes do reforço</li>
+                        <li><i class="fas fa-check"></i> Mapa de clínicas parceiras próximas a você</li>
+                        <li><i class="fas fa-check"></i> Agendamento em menos de 1 minuto</li>
+                    </ul>
+
+                    <div class="auth-social-proof">
+                        <i class="fas fa-shield-halved"></i>
+                        Seus dados são protegidos e nunca compartilhados com terceiros.
+                    </div>
+                </aside>
+
+                <div class="auth-main">
+                    <div class="auth-card">
+                        <div class="auth-card-header">
+                            <h1 id="authTitle">Acesse sua conta</h1>
+                            <p id="authSubtitle">Entre para gerenciar a saúde do seu pet.</p>
+                        </div>
+
+                        <div class="auth-tabs" role="tablist">
+                            <button type="button" class="auth-tab active" id="tabLogin" data-target="login" role="tab" aria-selected="true">
+                                <i class="fas fa-right-to-bracket"></i> Entrar
+                            </button>
+                            <button type="button" class="auth-tab" id="tabRegister" data-target="register" role="tab" aria-selected="false">
+                                <i class="fas fa-user-plus"></i> Cadastrar
+                            </button>
+                        </div>
+
+                        <!-- --- PAINEL LOGIN --- -->
+                        <form class="auth-panel active" id="panelLogin" novalidate>
+                            <div class="form-group field" id="loginEmailField">
+                                <label for="loginEmail">E-mail</label>
+                                <i class="fa-regular fa-envelope field-icon"></i>
+                                <input type="email" id="loginEmail" placeholder="voce@email.com" autocomplete="email" required />
+                                <p class="field-error">Informe um e-mail válido.</p>
+                            </div>
+
+                            <div class="form-group field" id="loginPasswordField">
+                                <label for="loginPassword">Senha</label>
+                                <i class="fa-regular fa-lock field-icon"></i>
+                                <input type="password" id="loginPassword" placeholder="••••••••" autocomplete="current-password" required />
+                                <button type="button" class="field-action" data-toggle-password="loginPassword" aria-label="Mostrar senha">
+                                    <i class="fa-regular fa-eye"></i>
+                                </button>
+                                <p class="field-error">Informe sua senha.</p>
+                            </div>
+
+                            <div class="checkbox-row">
+                                <label><input type="checkbox" id="loginRemember" checked /> Lembrar de mim</label>
+                                <a href="#" id="forgotPassword">Esqueci minha senha</a>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-block" id="loginSubmit">
+                                <i class="fas fa-right-to-bracket"></i> Entrar
+                            </button>
+
+                            <div class="auth-divider">ou continue com</div>
+
+                            <div class="social-row">
+                                <button type="button" class="social-btn" data-provider="Google">
+                                    <i class="fab fa-google" style="color:#EA4335;"></i> Google
+                                </button>
+                                <button type="button" class="social-btn" data-provider="Facebook">
+                                    <i class="fab fa-facebook-f" style="color:#1877F2;"></i> Facebook
+                                </button>
+                            </div>
+
+                            <p class="auth-switch">
+                                Ainda não tem conta?
+                                <button type="button" data-switch="register">Criar agora</button>
+                            </p>
+                        </form>
+
+                        <!-- --- PAINEL CADASTRO --- -->
+                        <form class="auth-panel" id="panelRegister" novalidate>
+                            <div class="form-group field" id="regNameField">
+                                <label for="regName">Nome completo</label>
+                                <i class="fa-regular fa-user field-icon"></i>
+                                <input type="text" id="regName" placeholder="Seu nome" autocomplete="name" required />
+                                <p class="field-error">Digite seu nome completo (mín. 3 letras).</p>
+                            </div>
+
+                            <div class="form-group field" id="regEmailField">
+                                <label for="regEmail">E-mail</label>
+                                <i class="fa-regular fa-envelope field-icon"></i>
+                                <input type="email" id="regEmail" placeholder="voce@email.com" autocomplete="email" required />
+                                <p class="field-error">Informe um e-mail válido.</p>
+                            </div>
+
+                            <div class="form-group field" id="regPasswordField">
+                                <label for="regPassword">Senha</label>
+                                <i class="fa-regular fa-lock field-icon"></i>
+                                <input type="password" id="regPassword" placeholder="Mín. 8 caracteres" autocomplete="new-password" required />
+                                <button type="button" class="field-action" data-toggle-password="regPassword" aria-label="Mostrar senha">
+                                    <i class="fa-regular fa-eye"></i>
+                                </button>
+                                <div class="strength" id="passwordStrength" data-level="0">
+                                    <span></span><span></span><span></span><span></span>
+                                </div>
+                                <p class="field-hint" id="strengthLabel">Use letras e números.</p>
+                                <p class="field-error">A senha precisa de 8+ caracteres, 1 letra e 1 número.</p>
+                            </div>
+
+                            <div class="form-group field" id="regConfirmField">
+                                <label for="regConfirm">Confirmar senha</label>
+                                <i class="fa-regular fa-lock field-icon"></i>
+                                <input type="password" id="regConfirm" placeholder="Repita a senha" autocomplete="new-password" required />
+                                <p class="field-error">As senhas não coincidem.</p>
+                            </div>
+
+                            <div class="checkbox-row">
+                                <label>
+                                    <input type="checkbox" id="regTerms" />
+                                    Aceito os <a href="#" target="_blank">Termos de Uso</a> e a
+                                    <a href="#" target="_blank">Privacidade</a>
+                                </label>
+                            </div>
+                            <p class="terms-error" id="termsError">Você precisa aceitar os termos para continuar.</p>
+
+                            <button type="submit" class="btn btn-success btn-block" id="registerSubmit">
+                                <i class="fas fa-user-plus"></i> Criar minha conta
+                            </button>
+
+                            <div class="auth-divider">ou cadastre-se com</div>
+
+                            <div class="social-row">
+                                <button type="button" class="social-btn" data-provider="Google">
+                                    <i class="fab fa-google" style="color:#EA4335;"></i> Google
+                                </button>
+                                <button type="button" class="social-btn" data-provider="Facebook">
+                                    <i class="fab fa-facebook-f" style="color:#1877F2;"></i> Facebook
+                                </button>
+                            </div>
+
+                            <p class="auth-switch">
+                                Já tem conta?
+                                <button type="button" data-switch="login">Entrar</button>
+                            </p>
+
+                            <p class="auth-legal">
+                                Ao continuar você concorda com nossos
+                                <a href="#">Termos de Uso</a> e <a href="#">Política de Privacidade</a>.
+                            </p>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- ============ DASHBOARD ============ -->
+        <section id="page-dashboard" class="dashboard hidden">
+            <div class="container">
+                <div class="dashboard-header">
+                    <div>
+                        <h2 class="section-title">👋 Olá, <span id="dashboardUserName">Tutor</span></h2>
+                        <p class="section-subtitle">Gerencie a saúde do seu pet</p>
+                    </div>
+                    <div style="display:flex;gap:12px;flex-wrap:wrap;">
+                        <button class="btn btn-primary" data-modal="petModal">
+                            <i class="fas fa-plus"></i> Novo Pet
+                        </button>
+                        <button class="btn btn-secondary" data-modal="scheduleModal">
+                            <i class="fas fa-syringe"></i> Agendar Vacina
+                        </button>
+                    </div>
+                </div>
+
+                <div class="notification-banner" id="reminderBanner">
+                    <i class="fas fa-bell"></i>
+                    <span><strong>Lembrete:</strong> Seu pet <span id="reminderPetName">Rex</span> precisa da vacina <span id="reminderVaccine">V10</span> em <span id="reminderDays">7</span> dias!</span>
+                </div>
+
+                <div class="dashboard-grid">
+                    <div class="card">
+                        <h3 style="margin-bottom:16px;"><i class="fas fa-paw" style="color:var(--primary);"></i> Meus Pets</h3>
+                        <div id="petList">
+                            <div class="empty-state">
+                                <i class="fas fa-paw"></i>
+                                Nenhum pet cadastrado ainda.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h3 style="margin-bottom:16px;"><i class="fas fa-syringe" style="color:var(--secondary);"></i> Próximas Vacinas</h3>
+                        <div id="upcomingVaccines">
+                            <div class="empty-state">
+                                <i class="fas fa-calendar-xmark"></i>
+                                Nenhuma vacina agendada.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card" style="grid-column:1/-1;">
+                        <h3 style="margin-bottom:16px;"><i class="fas fa-map-marked-alt" style="color:var(--success);"></i> Clínicas Próximas</h3>
+                        <div class="map-container" id="mapContainer">
+                            <div class="map-status">
+                                <i class="fas fa-circle" style="color:var(--success);font-size:10px;"></i>
+                                Mapa ilustrativo · 3 clínicas próximas
+                            </div>
+
+                            <svg class="illustrated-map" viewBox="0 0 800 400" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Mapa ilustrativo com sua localização e três clínicas parceiras próximas">
+                                <!-- fundo -->
+                                <rect width="800" height="400" fill="#EDF2F7" />
+
+                                <!-- quadras -->
+                                <g fill="#E2E8F0">
+                                    <rect x="18" y="18" width="154" height="119" rx="8" />
+                                    <rect x="218" y="18" width="162" height="119" rx="8" />
+                                    <rect x="638" y="18" width="144" height="119" rx="8" />
+                                    <rect x="18" y="163" width="154" height="124" rx="8" />
+                                    <rect x="218" y="163" width="162" height="124" rx="8" />
+                                    <rect x="638" y="163" width="144" height="124" rx="8" />
+                                    <rect x="18" y="313" width="154" height="69" rx="8" />
+                                    <rect x="218" y="313" width="162" height="69" rx="8" />
+                                    <rect x="428" y="313" width="162" height="69" rx="8" />
+                                    <rect x="638" y="313" width="144" height="69" rx="8" />
+                                </g>
+
+                                <!-- prédios -->
+                                <g fill="#D3DBE7">
+                                    <rect x="32" y="32" width="54" height="42" rx="5" />
+                                    <rect x="96" y="32" width="60" height="62" rx="5" />
+                                    <rect x="32" y="84" width="54" height="42" rx="5" />
+                                    <rect x="232" y="32" width="70" height="46" rx="5" />
+                                    <rect x="312" y="32" width="54" height="70" rx="5" />
+                                    <rect x="232" y="88" width="70" height="36" rx="5" />
+                                    <rect x="652" y="32" width="54" height="52" rx="5" />
+                                    <rect x="716" y="32" width="54" height="52" rx="5" />
+                                    <rect x="652" y="94" width="118" height="30" rx="5" />
+                                    <rect x="32" y="177" width="60" height="54" rx="5" />
+                                    <rect x="102" y="177" width="54" height="96" rx="5" />
+                                    <rect x="32" y="241" width="60" height="32" rx="5" />
+                                    <rect x="232" y="177" width="64" height="52" rx="5" />
+                                    <rect x="306" y="177" width="60" height="96" rx="5" />
+                                    <rect x="232" y="239" width="64" height="34" rx="5" />
+                                    <rect x="652" y="177" width="118" height="44" rx="5" />
+                                    <rect x="652" y="231" width="54" height="42" rx="5" />
+                                    <rect x="716" y="231" width="54" height="42" rx="5" />
+                                    <rect x="32" y="327" width="54" height="42" rx="5" />
+                                    <rect x="96" y="327" width="60" height="42" rx="5" />
+                                    <rect x="232" y="327" width="64" height="42" rx="5" />
+                                    <rect x="306" y="327" width="60" height="42" rx="5" />
+                                    <rect x="442" y="327" width="64" height="42" rx="5" />
+                                    <rect x="516" y="327" width="60" height="42" rx="5" />
+                                    <rect x="652" y="327" width="54" height="42" rx="5" />
+                                    <rect x="716" y="327" width="54" height="42" rx="5" />
+                                </g>
+
+                                <!-- parque -->
+                                <g>
+                                    <rect x="428" y="163" width="162" height="124" rx="8" fill="#CDE9C8" />
+                                    <ellipse cx="509" cy="253" rx="44" ry="19" fill="#A8D5F2" />
+                                    <g fill="#8CC98A">
+                                        <circle cx="458" cy="196" r="14" />
+                                        <circle cx="486" cy="212" r="10" />
+                                        <circle cx="556" cy="186" r="15" />
+                                        <circle cx="577" cy="216" r="10" />
+                                        <circle cx="447" cy="227" r="9" />
+                                        <circle cx="545" cy="265" r="11" />
+                                    </g>
+                                </g>
+
+                                <!-- ruas -->
+                                <g stroke="#FFFFFF" stroke-width="26">
+                                    <line x1="0" y1="150" x2="800" y2="150" />
+                                    <line x1="0" y1="300" x2="800" y2="300" />
+                                    <line x1="190" y1="0" x2="190" y2="400" />
+                                    <line x1="400" y1="0" x2="400" y2="400" />
+                                    <line x1="610" y1="0" x2="610" y2="400" />
+                                </g>
+                                <g stroke="#CBD5E1" stroke-width="2" stroke-dasharray="12 14">
+                                    <line x1="0" y1="150" x2="800" y2="150" />
+                                    <line x1="0" y1="300" x2="800" y2="300" />
+                                    <line x1="190" y1="0" x2="190" y2="400" />
+                                    <line x1="400" y1="0" x2="400" y2="400" />
+                                    <line x1="610" y1="0" x2="610" y2="400" />
+                                </g>
+
+                                <!-- nomes de ruas -->
+                                <text x="34" y="155" font-size="12" font-weight="600" fill="#94A3B8">Av. Central</text>
+                                <text x="416" y="155" font-size="12" font-weight="600" fill="#94A3B8">Av. Central</text>
+                                <text transform="rotate(-90 610 245)" x="610" y="245" font-size="12" font-weight="600" fill="#94A3B8" text-anchor="middle">Rua das Flores</text>
+
+                                <!-- sua localização -->
+                                <g transform="translate(400,225)">
+                                    <circle class="me-pulse" r="12" fill="#4A6CF7" />
+                                    <circle r="11" fill="#4A6CF7" stroke="#FFFFFF" stroke-width="4" />
+                                    <circle r="3.5" fill="#FFFFFF" />
+                                </g>
+
+                                <!-- clínica: PetCare -->
+                                <g class="pin" data-clinic="petcare" transform="translate(300,225)">
+                                    <g class="pin-body">
+                                        <path d="M0,0 C-4,-10 -12,-15 -12,-25 a12,12 0 1,1 24,0 c0,10 -8,15 -12,25 z" fill="#2ECC71" stroke="#FFFFFF" stroke-width="2.5" />
+                                        <circle cx="0" cy="-25" r="4.5" fill="#FFFFFF" />
+                                        <rect x="16" y="-46" width="150" height="28" rx="14" fill="#FFFFFF" />
+                                        <text x="91" y="-32" font-size="13" font-weight="600" fill="#1A1A2E" text-anchor="middle" dominant-baseline="central">PetCare · 200m</text>
+                                    </g>
+                                </g>
+
+                                <!-- clínica: Vet Mais -->
+                                <g class="pin" data-clinic="vetmais" transform="translate(250,110)">
+                                    <g class="pin-body">
+                                        <path d="M0,0 C-4,-10 -12,-15 -12,-25 a12,12 0 1,1 24,0 c0,10 -8,15 -12,25 z" fill="#4A6CF7" stroke="#FFFFFF" stroke-width="2.5" />
+                                        <circle cx="0" cy="-25" r="4.5" fill="#FFFFFF" />
+                                        <rect x="16" y="-46" width="150" height="28" rx="14" fill="#FFFFFF" />
+                                        <text x="91" y="-32" font-size="13" font-weight="600" fill="#1A1A2E" text-anchor="middle" dominant-baseline="central">Vet Mais · 450m</text>
+                                    </g>
+                                </g>
+
+                                <!-- clínica: Animal Health -->
+                                <g class="pin" data-clinic="animalhealth" transform="translate(700,345)">
+                                    <g class="pin-body">
+                                        <path d="M0,0 C-4,-10 -12,-15 -12,-25 a12,12 0 1,1 24,0 c0,10 -8,15 -12,25 z" fill="#F39C12" stroke="#FFFFFF" stroke-width="2.5" />
+                                        <circle cx="0" cy="-25" r="4.5" fill="#FFFFFF" />
+                                        <rect x="-166" y="-46" width="150" height="28" rx="14" fill="#FFFFFF" />
+                                        <text x="-91" y="-32" font-size="13" font-weight="600" fill="#1A1A2E" text-anchor="middle" dominant-baseline="central">Animal Health · 800m</text>
+                                    </g>
+                                </g>
+                            </svg>
+
+                            <div class="map-legend" id="mapLegend">
+                                <button type="button" class="legend-item" data-clinic="petcare" style="--c:#2ECC71">
+                                    <span class="legend-dot"></span> PetCare Clinic · 200m
+                                </button>
+                                <button type="button" class="legend-item" data-clinic="vetmais" style="--c:#4A6CF7">
+                                    <span class="legend-dot"></span> Vet Mais · 450m
+                                </button>
+                                <button type="button" class="legend-item" data-clinic="animalhealth" style="--c:#F39C12">
+                                    <span class="legend-dot"></span> Animal Health · 800m
+                                </button>
+                                <span class="legend-item legend-user" style="--c:#4A6CF7">
+                                    <span class="legend-dot"></span> Você
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ AGENDAR ============ -->
+        <section id="page-schedule" class="dashboard hidden">
+            <div class="container">
+                <h2 class="section-title">📅 Agendar Vacina</h2>
+                <p class="section-subtitle">Preencha os dados e encontre o melhor horário</p>
+
+                <div class="card" style="max-width:700px;">
+                    <form id="scheduleForm" novalidate>
+                        <div class="form-group">
+                            <label for="schedulePetSelect">Selecione o Pet</label>
+                            <select id="schedulePetSelect" required>
+                                <option value="">-- Selecione um pet --</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="scheduleVaccineSelect">Vacina</label>
+                            <select id="scheduleVaccineSelect" required>
+                                <option value="">-- Selecione --</option>
+                                <option value="V8">V8 (Polivalente)</option>
+                                <option value="V10">V10 (Polivalente)</option>
+                                <option value="Antirrábica">Antirrábica</option>
+                                <option value="Gripe">Gripe Canina</option>
+                                <option value="Leishmaniose">Leishmaniose</option>
+                            </select>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="scheduleDate">Data desejada</label>
+                                <input type="date" id="scheduleDate" required />
+                            </div>
+                            <div class="form-group">
+                                <label for="scheduleClinic">Clínica</label>
+                                <select id="scheduleClinic" required>
+                                    <option value="">-- Selecione --</option>
+                                    <option value="PetCare Clinic">PetCare Clinic - Rua das Flores, 123</option>
+                                    <option value="Vet Mais">Vet Mais - Av. Central, 456</option>
+                                    <option value="Animal Health">Animal Health - Rua dos Animais, 789</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Horários disponíveis</label>
+                            <div class="slots-grid" id="slotsGrid">
+                                <button type="button" class="slot-btn">08:00</button>
+                                <button type="button" class="slot-btn">09:00</button>
+                                <button type="button" class="slot-btn disabled" disabled>10:00</button>
+                                <button type="button" class="slot-btn">11:00</button>
+                                <button type="button" class="slot-btn">13:30</button>
+                                <button type="button" class="slot-btn">14:30</button>
+                                <button type="button" class="slot-btn">15:30</button>
+                                <button type="button" class="slot-btn">16:30</button>
+                            </div>
+                            <input type="hidden" id="scheduleTime" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="scheduleNotes">Observações (opcional)</label>
+                            <textarea id="scheduleNotes" rows="3" placeholder="Alguma informação importante para a clínica?"></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-block">
+                            <i class="fas fa-check"></i> Confirmar Agendamento
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ HISTÓRICO ============ -->
+        <section id="page-history" class="dashboard hidden">
+            <div class="container">
+                <h2 class="section-title">📋 Histórico Vacinal</h2>
+                <p class="section-subtitle">Todas as vacinas aplicadas e agendamentos</p>
+
+                <div class="card" style="max-width:700px;">
+                    <div id="historyList">
+                        <div class="empty-state">
+                            <i class="fas fa-file-medical"></i>
+                            Nenhum registro encontrado ainda.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ ÁREA DO PROFISSIONAL ============ -->
+        <div id="page-pro" class="hidden">
+
+            <!-- Acesso do profissional (login / cadastro) -->
+            <section id="proAuth" class="auth-page pro">
+                <aside class="auth-aside">
+                    <div class="auth-brand">
+                        <i class="fas fa-user-doctor"></i> VuxPet <span style="opacity:.75;">Pro</span>
+                    </div>
+                    <h2>Gestão da sua clínica em tempo real.</h2>
+                    <p>
+                        Ambiente exclusivo para veterinários e equipes: acompanhe a agenda,
+                        confirme atendimentos e mantenha o histórico dos tutores.
+                    </p>
+
+                    <ul class="auth-benefits">
+                        <li><i class="fas fa-check"></i> Agenda do dia e métricas da clínica</li>
+                        <li><i class="fas fa-check"></i> Confirme, conclua ou cancelhe atendimentos</li>
+                        <li><i class="fas fa-check"></i> Tutores e pets já atendidos</li>
+                        <li><i class="fas fa-check"></i> Acesso restrito à sua clínica</li>
+                    </ul>
+
+                    <div class="auth-social-proof">
+                        <i class="fas fa-lock"></i>
+                        Ambiente separado da área do tutor — use outro e-mail se já tem conta de cliente.
+                    </div>
+                </aside>
+
+                <div class="auth-main">
+                    <div class="auth-card">
+                        <div class="auth-card-header">
+                            <h1 id="proAuthTitle">Acesso do profissional</h1>
+                            <p id="proAuthSubtitle">Entre para ver os agendamentos da sua clínica.</p>
+                        </div>
+
+                        <div class="auth-tabs" role="tablist">
+                            <button type="button" class="auth-tab active" id="proTabLogin" role="tab" aria-selected="true">
+                                <i class="fas fa-right-to-bracket"></i> Entrar
+                            </button>
+                            <button type="button" class="auth-tab" id="proTabRegister" role="tab" aria-selected="false">
+                                <i class="fas fa-user-doctor"></i> Cadastrar
+                            </button>
+                        </div>
+
+                        <!-- login profissional -->
+                        <form class="auth-panel active" id="proLoginPanel" novalidate>
+                            <div class="form-group field" id="proLoginEmailField">
+                                <label for="proLoginEmail">E-mail profissional</label>
+                                <i class="fa-regular fa-envelope field-icon"></i>
+                                <input type="email" id="proLoginEmail" placeholder="vet@clinica.com" autocomplete="email" required />
+                                <p class="field-error">Informe um e-mail válido.</p>
+                            </div>
+
+                            <div class="form-group field" id="proLoginPasswordField">
+                                <label for="proLoginPassword">Senha</label>
+                                <i class="fa-regular fa-lock field-icon"></i>
+                                <input type="password" id="proLoginPassword" placeholder="••••••••" autocomplete="current-password" required />
+                                <button type="button" class="field-action" data-toggle-password="proLoginPassword" aria-label="Mostrar senha">
+                                    <i class="fa-regular fa-eye"></i>
+                                </button>
+                                <p class="field-error">Informe sua senha.</p>
+                            </div>
+
+                            <button type="submit" class="btn btn-pro btn-block" id="proLoginSubmit">
+                                <i class="fas fa-right-to-bracket"></i> Entrar no painel
+                            </button>
+
+                            <p class="auth-switch">
+                                Ainda não tem acesso profissional?
+                                <button type="button" data-pro-switch="register">Cadastrar clínica</button>
+                            </p>
+                        </form>
+
+                        <!-- cadastro profissional -->
+                        <form class="auth-panel" id="proRegisterPanel" novalidate>
+                            <div class="form-group field" id="proRegNameField">
+                                <label for="proRegName">Nome completo</label>
+                                <i class="fa-regular fa-user field-icon"></i>
+                                <input type="text" id="proRegName" placeholder="Dra. Ana Souza" autocomplete="name" required />
+                                <p class="field-error">Digite seu nome completo (mín. 3 letras).</p>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group field" id="proRegCrmvField">
+                                    <label for="proRegCrmv">CRMV / CRO</label>
+                                    <i class="fa-regular fa-id-card field-icon"></i>
+                                    <input type="text" id="proRegCrmv" placeholder="CRMV-SP 12345" required />
+                                    <p class="field-error">Informe seu registro (mín. 4 caracteres).</p>
+                                </div>
+                                <div class="form-group field" id="proRegClinicField">
+                                    <label for="proRegClinic">Clínica</label>
+                                    <i class="fa-regular fa-hospital field-icon"></i>
+                                    <select id="proRegClinic" required>
+                                        <option value="">-- Selecione --</option>
+                                        <option value="PetCare Clinic">PetCare Clinic</option>
+                                        <option value="Vet Mais">Vet Mais</option>
+                                        <option value="Animal Health">Animal Health</option>
+                                    </select>
+                                    <p class="field-error">Selecione a clínica.</p>
+                                </div>
+                            </div>
+
+                            <div class="form-group field" id="proRegEmailField">
+                                <label for="proRegEmail">E-mail</label>
+                                <i class="fa-regular fa-envelope field-icon"></i>
+                                <input type="email" id="proRegEmail" placeholder="vet@clinica.com" autocomplete="email" required />
+                                <p class="field-error">Informe um e-mail válido.</p>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group field" id="proRegPasswordField">
+                                    <label for="proRegPassword">Senha</label>
+                                    <i class="fa-regular fa-lock field-icon"></i>
+                                    <input type="password" id="proRegPassword" placeholder="Mín. 8 caracteres" autocomplete="new-password" required />
+                                    <button type="button" class="field-action" data-toggle-password="proRegPassword" aria-label="Mostrar senha">
+                                        <i class="fa-regular fa-eye"></i>
+                                    </button>
+                                    <p class="field-error">8+ caracteres, 1 letra e 1 número.</p>
+                                </div>
+                                <div class="form-group field" id="proRegConfirmField">
+                                    <label for="proRegConfirm">Confirmar senha</label>
+                                    <i class="fa-regular fa-lock field-icon"></i>
+                                    <input type="password" id="proRegConfirm" placeholder="Repita a senha" autocomplete="new-password" required />
+                                    <p class="field-error">As senhas não coincidem.</p>
+                                </div>
+                            </div>
+
+                            <div class="checkbox-row">
+                                <label>
+                                    <input type="checkbox" id="proRegTerms" />
+                                    Aceito os <a href="#" target="_blank">Termos de Uso</a> como profissional
+                                </label>
+                            </div>
+                            <p class="terms-error" id="proTermsError">Você precisa aceitar os termos para continuar.</p>
+
+                            <button type="submit" class="btn btn-pro btn-block" id="proRegisterSubmit">
+                                <i class="fas fa-user-doctor"></i> Criar acesso profissional
+                            </button>
+
+                            <p class="auth-switch">
+                                Já tem acesso?
+                                <button type="button" data-pro-switch="login">Entrar</button>
+                            </p>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Painel do profissional -->
+            <section id="proPanel" class="pro-panel hidden">
+                <div class="container">
+                    <div class="dashboard-header">
+                        <div>
+                            <h2 class="section-title">🩺 Área do Profissional</h2>
+                            <p class="section-subtitle">
+                                <span id="proName">Profissional</span>
+                                <span class="badge badge-info" id="proClinicName" style="margin-left:8px;">—</span>
+                            </p>
+                        </div>
+                        <div style="display:flex;gap:12px;flex-wrap:wrap;">
+                            <button class="btn btn-secondary" id="proRefreshBtn">
+                                <i class="fas fa-rotate"></i> Atualizar
+                            </button>
+                            <button class="btn btn-outline" id="proLogoutBtn">
+                                <i class="fas fa-sign-out-alt"></i> Sair
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="metrics-grid" id="proMetrics"></div>
+
+                    <div class="pro-grid">
+                        <div class="card">
+                            <h3 class="card-title"><i class="fas fa-calendar-day" style="color:var(--primary);"></i> Agenda de hoje</h3>
+                            <div id="proToday"></div>
+                        </div>
+                        <div class="card">
+                            <h3 class="card-title"><i class="fas fa-users" style="color:var(--success);"></i> Tutores e pets</h3>
+                            <div id="proTutors"></div>
+                        </div>
+                    </div>
+
+                    <div class="card pro-queue-card">
+                        <div class="queue-header">
+                            <h3 class="card-title" style="margin:0;">
+                                <i class="fas fa-list-check" style="color:var(--warning);"></i> Agendamentos
+                                <span class="queue-count" id="proQueueCount">0</span>
+                            </h3>
+                            <div class="queue-filters" id="proFilters">
+                                <button type="button" class="filter-chip active" data-filter="all">Todos</button>
+                                <button type="button" class="filter-chip" data-filter="today">Hoje</button>
+                                <button type="button" class="filter-chip" data-filter="pending">Pendentes</button>
+                                <button type="button" class="filter-chip" data-filter="done">Concluídos</button>
+                            </div>
+                        </div>
+                        <div id="proQueue" class="queue-list"></div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+    </main>
+
+    <!-- ===== MODAIS ===== -->
+    <div class="modal-overlay" id="petModal">
+        <div class="modal" role="dialog" aria-modal="true" aria-labelledby="petModalTitle">
+            <div class="modal-header">
+                <h2 id="petModalTitle"><i class="fas fa-paw" style="color:var(--primary);"></i> Cadastrar Pet</h2>
+                <button class="modal-close" data-close aria-label="Fechar">&times;</button>
+            </div>
+            <form id="petForm" novalidate>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="petName">Nome</label>
+                        <input type="text" id="petName" placeholder="Ex.: Rex" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="petSpecies">Espécie</label>
+                        <select id="petSpecies" required>
+                            <option value="">-- Selecione --</option>
+                            <option value="Cachorro">Cachorro</option>
+                            <option value="Gato">Gato</option>
+                            <option value="Outro">Outro</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="petBreed">Raça</label>
+                        <input type="text" id="petBreed" placeholder="Ex.: SRD" />
+                    </div>
+                    <div class="form-group">
+                        <label for="petAge">Idade</label>
+                        <input type="text" id="petAge" placeholder="Ex.: 3 anos" />
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">
+                    <i class="fas fa-plus"></i> Salvar Pet
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="scheduleModal">
+        <div class="modal" role="dialog" aria-modal="true" aria-labelledby="scheduleModalTitle">
+            <div class="modal-header">
+                <h2 id="scheduleModalTitle"><i class="fas fa-syringe" style="color:var(--secondary);"></i> Agendar Vacina</h2>
+                <button class="modal-close" data-close aria-label="Fechar">&times;</button>
+            </div>
+            <p style="color:var(--gray);font-size:14px;margin-bottom:18px;">
+                Escolha pet, vacina, data e horário na página de agendamento.
+            </p>
+            <button class="btn btn-primary btn-block" data-page="schedule">
+                Ir para agendamento <i class="fas fa-arrow-right"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3><i class="fas fa-paw"></i> VuxPet</h3>
+                    <p>Plataforma inteligente de agendamento vacinal para manter seu pet saudável e feliz.</p>
+                </div>
+                <div>
+                    <h4>Produto</h4>
+                    <ul>
+                        <li><a data-page="home">Início</a></li>
+                        <li><a data-page="dashboard">Dashboard</a></li>
+                        <li><a data-page="schedule">Agendar</a></li>
+                        <li><a data-page="history">Histórico</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Conta</h4>
+                    <ul>
+                        <li><a data-page="auth" data-auth-tab="login">Entrar</a></li>
+                        <li><a data-page="auth" data-auth-tab="register">Cadastrar</a></li>
+                        <li><a href="#" id="footerForgot">Recuperar senha</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Suporte</h4>
+                    <ul>
+                        <li><a href="#">Central de ajuda</a></li>
+                        <li><a href="#">Fale conosco</a></li>
+                        <li><a href="#">Termos de uso</a></li>
+                        <li><a href="#">Privacidade</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; <span id="year"></span> VuxPet. Todos os direitos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Supabase (client) -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <!-- Scripts -->
+    <script src="js/supabase-config.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/pro.js"></script>
+</body>
+</html>
