@@ -611,9 +611,9 @@ const Auth = (() => {
             console.error('[VuxPet] getSession:', err);
         } finally {
             sessionRestoring = false;
-        }
 
-        bindAuthListener();
+            bindAuthListener();
+        }
     }
 
     /* ---------- Init ---------- */

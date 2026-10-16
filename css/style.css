@@ -1673,9 +1673,6 @@ footer .footer-bottom {
     .auth-aside {
         padding: 40px 24px;
     }
-    .social-row {
-        grid-template-columns: 1fr;
-    }
     footer .footer-content {
         grid-template-columns: 1fr;
         gap: 24px;

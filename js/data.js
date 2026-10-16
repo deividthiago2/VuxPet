@@ -310,7 +310,9 @@ const DB = (() => {
                 .order('date', { ascending: false })
                 .order('time', { ascending: true }));
             throwIf(error, 'appointments.list');
-            return (data || []).map(mapAppointment);
+            let result = (data || []).map(mapAppointment);
+            if (localClinic) result = result.filter(a => a.clinic === localClinic);
+            return result;
         },
 
         async create(payload) {

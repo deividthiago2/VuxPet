@@ -521,7 +521,7 @@ const Pro = (() => {
             if (currentFilter === 'pending') return PENDING.includes(a.status);
             if (currentFilter === 'done') return a.status === 'Concluída';
             return true;
-        }).sort((a, b) => (b.date + b.time).localeCompare(a.date + a.time));
+        }).sort((a, b) => (b.date + b.time).localeCompare(a.date + b.time));
 
         $('#proQueueCount').textContent = String(filtered.length);
 
@@ -598,6 +598,9 @@ const Pro = (() => {
 
     /* ---------- Init ---------- */
     function init() {
+        // O painel do profissional só existe no index.html.
+        if (!document.getElementById('proPanel')) return;
+
         $('#proTabLogin').addEventListener('click', () => setProTab('login'));
         $('#proTabRegister').addEventListener('click', () => setProTab('register'));
 
